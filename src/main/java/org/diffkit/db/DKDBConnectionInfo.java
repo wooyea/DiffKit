@@ -27,11 +27,25 @@ import org.diffkit.common.DKValidate;
 public class DKDBConnectionInfo {
    private final String _name;
    private final DKDBFlavor _flavor;
+   private final String _url;
    private final String _database;
    private final String _host;
    private final Long _port;
    private final String _username;
    private final String _password;
+
+   public DKDBConnectionInfo(String name_, DKDBFlavor kind_, String url_, String database_, String username_, String password_) {
+      _name = name_;
+      _flavor = kind_;
+      _host = null;
+      _port = 8080L;
+      _url = url_;
+      _database = database_;
+      _username = username_;
+      _password = password_;
+
+      DKValidate.notNull(_name, _flavor, _url, _database, _username, _password);
+   }
 
    public DKDBConnectionInfo(String name_, DKDBFlavor kind_, String database_,
                              String host_, Long port_, String username_, String password_) {
@@ -40,6 +54,7 @@ public class DKDBConnectionInfo {
       _database = database_;
       _host = host_;
       _port = port_;
+      _url = null;
       _username = username_;
       _password = password_;
 
@@ -67,6 +82,11 @@ public class DKDBConnectionInfo {
    }
 
    public String getJDBCUrl() {
+
+      if (_url!=null) {
+         return _url;
+      }
+
       switch (_flavor) {
       case H2:
          return this.getH2Url();
