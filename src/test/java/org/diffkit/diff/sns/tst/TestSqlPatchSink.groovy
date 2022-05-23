@@ -15,8 +15,7 @@
  */
 package org.diffkit.diff.sns.tst
 
-
-
+import org.junit.Test
 
 import java.sql.Timestamp;
 
@@ -41,8 +40,9 @@ import static org.diffkit.util.tst.TestTimeUtil.*
 /**
  * @author jpanico
  */
-public class TestSqlPatchSink extends GroovyTestCase {
-   
+public class TestSqlPatchSink {
+
+   @Test
    public void testSink() {
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"

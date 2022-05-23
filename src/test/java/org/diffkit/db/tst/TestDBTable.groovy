@@ -20,7 +20,7 @@ package org.diffkit.db.tst
 import java.sql.Timestamp;
 import java.util.Calendar;
 
-import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.lang3.time.DateUtils;
 
 import org.diffkit.db.DKDBColumn;
 import org.diffkit.db.DKDBConnectionInfo 
@@ -31,13 +31,11 @@ import org.diffkit.db.DKDBTable
 import org.diffkit.db.DKDBTableDataAccess;
 import org.diffkit.util.DKSqlUtil;
 
-import groovy.util.GroovyTestCase;
-
 
 /**
  * @author jpanico
  */
-public class TestDBTable extends GroovyTestCase {
+public class TestDBTable {
    
    public void testKeyValues() {
       DKDBTable table = this.createCustomerMetaTable()

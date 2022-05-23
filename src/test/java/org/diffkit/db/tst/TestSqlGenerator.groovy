@@ -17,9 +17,11 @@
  */
 package org.diffkit.db.tst
 
-import java.sql.Timestamp 
+import org.junit.Test
 
-import org.apache.commons.lang.StringUtils;
+import java.sql.Timestamp
+
+import org.apache.commons.lang3.StringUtils;
 
 import org.diffkit.db.DKDBColumn;
 import org.diffkit.db.DKDBConnectionInfo 
@@ -39,9 +41,9 @@ import static org.diffkit.util.tst.TestTimeUtil.*
 /**
  * @author jpanico
  */
-public class TestSqlGenerator extends GroovyTestCase {
-   
-   
+public class TestSqlGenerator {
+
+   @Test
    public void testGenerateUpdateDML(){
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       DKDatabase database = [connectionInfo]
@@ -56,7 +58,8 @@ public class TestSqlGenerator extends GroovyTestCase {
       def updateStatement = sqlGenerator.generateUpdateDML( row, typeInfos, columnNames, keyIndices, updateIndices, 'schema', 'customer')
       assert updateStatement == "UPDATE schema.customer\nSET address='addr1', city='city', country='country', age=55\nWHERE (first_name='bob' ) AND (last_name='smith' )"
    }
-   
+
+   @Test
    public void testGenerateSetClause(){
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       DKDatabase database = [connectionInfo]
@@ -72,7 +75,8 @@ public class TestSqlGenerator extends GroovyTestCase {
       assert setClause == "SET address='addr1', city='city', country='country', age=55"
       assert ! sqlGenerator.generateSetClause( null, null, null, null)
    }
-   
+
+   @Test
    public void testGenerateDeleteDML(){
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       DKDatabase database = [connectionInfo]
@@ -86,7 +90,8 @@ public class TestSqlGenerator extends GroovyTestCase {
       println "deleteStatement->$deleteStatement"
       assert deleteStatement == """DELETE FROM schema.customer\nWHERE (first_name='bob' ) AND (last_name='smith' ) AND (address='addr1' ) AND (city='city' ) AND (country='country' ) AND (age=55 )"""
    }
-   
+
+   @Test
    public void testGenerateWhereClause(){
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       DKDatabase database = [connectionInfo]
@@ -101,7 +106,8 @@ public class TestSqlGenerator extends GroovyTestCase {
       assert whereClause == "WHERE (first_name='bob' ) AND (last_name='smith' ) AND (address='addr1' ) AND (city='city' ) AND (country='country' ) AND (age=55 )"
       assert ! sqlGenerator.generateWhereClause( null, null, null)
    }
-   
+
+   @Test
    public void testGenerateInsert(){
       def table = this.createContextMetaTable()
       def row = [ID:1000, LHS_SOURCE: 'lhs source', RHS_SOURCE: 'rhs source', WHEN: new Timestamp(10000), RUN_DATE: new Date(10000) ]
@@ -116,7 +122,8 @@ public class TestSqlGenerator extends GroovyTestCase {
       VALUES (1000, 'lhs source', 'rhs source', {ts '${localTime(10000)}'}, '${localDate(10000)}')"""
       )
    }
-   
+
+   @Test
    public void testCreateDropTable(){
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"
@@ -136,7 +143,8 @@ public class TestSqlGenerator extends GroovyTestCase {
       fetchedTable = tableDataAccess.getTable(null, null, table.tableName)
       assert !fetchedTable
    }
-   
+
+   @Test
    public void testGenerateDDL(){
       DKDBTable table = this.createCustomerMetaTable()
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
@@ -159,7 +167,8 @@ public class TestSqlGenerator extends GroovyTestCase {
             CONSTRAINT pk_customer PRIMARY KEY (first_name,last_name)
 		)""")
    }
-   
+
+   @Test
    public void tXstGenerateDDLOracle(){
       DKDBConnectionInfo connectionInfo = ['oracle', DKDBFlavor.ORACLE,'XE', '10.0.1.11', 1521, 'diffkit', 'diffkit']
       println "connectionInfo->$connectionInfo"

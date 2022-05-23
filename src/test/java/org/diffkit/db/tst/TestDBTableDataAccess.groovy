@@ -21,14 +21,15 @@ import org.diffkit.db.DKDatabase
 import org.diffkit.db.DKDBFlavor 
 import org.diffkit.db.DKDBTableDataAccess;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestDBTableDataAccess extends GroovyTestCase {
-   
+public class TestDBTableDataAccess {
+
+   @Test
    public void testGetTables(){
       
       println "startsWith->" + 'TABLE_SCHEMA'.startsWith('TABLE_SCHEM')

@@ -17,19 +17,20 @@ package org.diffkit.diff.diffor.tst
 
 
 
-import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.lang3.time.DateUtils;
 
 import org.diffkit.common.DKCalendarSpan;
 import org.diffkit.diff.diffor.DKDateDiffor 
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestDateDiffor extends GroovyTestCase {
-	
+public class TestDateDiffor {
+
+	@Test
 	public void testDiff(){
 		
 		def now = new Date()

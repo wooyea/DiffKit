@@ -15,24 +15,17 @@
  */
 package org.diffkit.common.tst
 
+import org.apache.commons.io.FileUtils
+import org.diffkit.common.DKUnjar
+import org.junit.Test
 
-
-import java.io.File;
-import java.net.URL;
-import java.util.jar.JarInputStream;
-
-import org.apache.commons.io.FileUtils;
-
-import org.diffkit.common.DKUnjar;
-
-import groovy.util.GroovyTestCase;
-
-
+import java.util.jar.JarInputStream
 /**
  * @author jpanico
  */
-public class TestUnjar extends GroovyTestCase {
-   
+public class TestUnjar {
+
+   @Test
    public void testUnjar(){
       URL jarURL = this.getClass().classLoader.getResource('org/diffkit/common/tst/unjar_test.jar')
       println "jarURL->$jarURL"
@@ -47,7 +40,8 @@ public class TestUnjar extends GroovyTestCase {
       assert fileNames.size()==3
       assert fileNames == (['unjar1.txt', 'unjar2.txt', 'unjar3.txt'] as Set<String>)
    }
-   
+
+   @Test
    public void testUnjarWithSubstitutions(){
       URL jarURL = this.getClass().classLoader.getResource('org/diffkit/common/tst/unjar_test.jar')
       println "jarURL->$jarURL"

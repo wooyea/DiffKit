@@ -15,18 +15,20 @@
  */
 package org.diffkit.diff.sns.tst
 
-import org.apache.commons.lang.ClassUtils
+import org.apache.commons.lang3.ClassUtils
 import org.diffkit.diff.engine.DKColumnModel
 import org.diffkit.diff.engine.DKTableModel
 import org.diffkit.diff.sns.DKFileSource
 import org.diffkit.util.DKResourceUtil
 import org.diffkit.util.DKStringUtil
+import org.junit.Test
 
 /**
  * @author jpanico
  */
-public class TestFileSource extends GroovyTestCase {
+public class TestFileSource {
 
+    @Test
     public void testDefaultModelWithKeyColumnNames() {
         String sourceFileName = 'lhs1.csv'
         String sourceFilePath = ClassUtils.getPackageName(this.getClass())
@@ -43,6 +45,7 @@ public class TestFileSource extends GroovyTestCase {
         assert model.key == [1]
     }
 
+    @Test
     public void testDefaultModel() {
         String sourceFileName = 'lhs1.csv'
         String sourceFilePath = ClassUtils.getPackageName(this.getClass())
@@ -59,6 +62,7 @@ public class TestFileSource extends GroovyTestCase {
         assert model.key == [0]
     }
 
+    @Test
     public void testRead() {
         String sourceFileName = 'lhs1.csv'
         String sourceFilePath = ClassUtils.getPackageName(this.getClass())
@@ -83,6 +87,7 @@ public class TestFileSource extends GroovyTestCase {
         source.close(null)
     }
 
+    @Test
     private DKTableModel createSimpleTableModel() {
         DKColumnModel column1 = [0, 'column1', DKColumnModel.Type.STRING]
         DKColumnModel column2 = [1, 'column2', DKColumnModel.Type.STRING]
@@ -93,6 +98,7 @@ public class TestFileSource extends GroovyTestCase {
         return new DKTableModel("simple_table_model", columns, key)
     }
 
+    @Test
     public void testReadWithQuotedFields() {
         String sourceFileName = 'customers.csv'
         String sourceFilePath = ClassUtils.getPackageName(this.getClass())

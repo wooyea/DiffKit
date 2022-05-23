@@ -16,7 +16,7 @@
  */
 package org.diffkit.diff.conf.tst
 
-
+import org.junit.Test
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext 
@@ -27,15 +27,14 @@ import org.diffkit.diff.engine.DKColumnModel;
 import org.diffkit.diff.sns.DKDBSource 
 import org.diffkit.diff.sns.DKWriterSink 
 
-import groovy.util.GroovyTestCase;
-
 
 /**
  * @author jpanico
  */
-public class TestTool extends GroovyTestCase {
+public class TestTool {
    private final Logger _log = LoggerFactory.getLogger(this.getClass())
-   
+
+   @Test
    public void testPlan(){
       DBTestSetup.setupDB(new File('org/diffkit/diff/conf/tst/test.dbsetup.xml'), (File[])[new File('org/diffkit/diff/conf/tst/dbConnectionInfo.xml')], 'org/diffkit/diff/conf/tst/test.lhs.csv', 'org/diffkit/diff/conf/tst/test.rhs.csv')
       ApplicationContext context = new ClassPathXmlApplicationContext('org/diffkit/diff/conf/tst/testtool.xml');

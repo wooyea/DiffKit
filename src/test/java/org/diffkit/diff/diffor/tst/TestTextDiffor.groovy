@@ -17,17 +17,18 @@ package org.diffkit.diff.diffor.tst
 
 
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.diffkit.diff.diffor.DKTextDiffor 
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestTextDiffor extends GroovyTestCase {
-   
+public class TestTextDiffor {
+
+    @Test
    public void testStringUtils(){
       assert StringUtils.replaceChars('abcdef', 'bd', '') == 'acef'
    }
@@ -38,7 +39,8 @@ public class TestTextDiffor extends GroovyTestCase {
 	   assert diffor.normalize('in   this    world    of  affordable') == 'in this world of affordable'
 	   assert diffor.normalize('in  \n this\n    world\n\t\r  \r\t\n  of  affordable') == 'in this world of affordable'
    }
-   
+
+    @Test
    public void testDiff(){
       def diffor = new DKTextDiffor("")
       assert ! diffor.isDiff( 'hello', 'hello', null)

@@ -15,6 +15,7 @@
  */
 package org.diffkit.db.tst
 
+import org.junit.Test
 
 import java.util.regex.Pattern;
 
@@ -22,20 +23,20 @@ import org.diffkit.db.DKDBFlavor;
 import org.diffkit.db.DKDBType;
 
 
-import groovy.util.GroovyTestCase;
-
 
 /**
  * @author jpanico
  */
-public class TestDBType extends GroovyTestCase {
-   
+public class TestDBType {
+
+   @Test
    public void testGetBaseTypeName() {
       assert DKDBType.getBaseTypeName('VARCHAR') == 'VARCHAR'
       assert DKDBType.getBaseTypeName('VARCHAR()') == 'VARCHAR'
       assert DKDBType.getBaseTypeName('VARCHAR(128)') == 'VARCHAR'
    }
-   
+
+   @Test
    public void testGetConcreteType() {
       assert !DKDBType.getConcreteType(null, null)
       assert !DKDBType.getConcreteType(DKDBFlavor.H2, null)
@@ -45,13 +46,15 @@ public class TestDBType extends GroovyTestCase {
       assert DKDBType.getConcreteType(DKDBFlavor.ORACLE, 'VARCHAR') == DKDBType._ORACLE_VARCHAR2
       assert DKDBType.getConcreteType(DKDBFlavor.ORACLE, 'BIGINT') == DKDBType._ORACLE_NUMBER
    }
-   
+
+   @Test
    public void testSqlTypeName(){
       assert DKDBType.VARCHAR.sqlTypeName == 'VARCHAR'
       assert DKDBType._ORACLE_VARCHAR2.sqlTypeName == 'VARCHAR2'
       assert DKDBType._ORACLE_NUMBER.sqlTypeName == 'NUMBER'
    }
-   
+
+   @Test
    public void testConcreteForAbstract(){
       assert !DKDBType.getConcreteTypeForAbstractType(null, null)
       assert !DKDBType.getConcreteTypeForAbstractType(DKDBFlavor.H2 , null)
@@ -61,7 +64,8 @@ public class TestDBType extends GroovyTestCase {
       assert DKDBType.getConcreteTypeForAbstractType(DKDBFlavor.H2, DKDBType.VARCHAR) ==DKDBType.VARCHAR
       assert DKDBType.getConcreteTypeForAbstractType(DKDBFlavor.ORACLE, DKDBType.VARCHAR) ==DKDBType._ORACLE_VARCHAR2
    }
-   
+
+   @Test
    public void testGetType(){
       assert !DKDBType.getType(null, null)
       assert !DKDBType.getType(DKDBFlavor.H2 , null)
@@ -71,7 +75,8 @@ public class TestDBType extends GroovyTestCase {
       }
       assert DKDBType.getType(DKDBFlavor.ORACLE , 'VARCHAR2') == DKDBType._ORACLE_VARCHAR2
    }
-   
+
+   @Test
    public void testFlavorDemangler(){
       def prefixPattern = Pattern.compile('^(_.*_)') 
       def matcher = prefixPattern.matcher('_ORACLE_VARCHAR2')

@@ -16,16 +16,16 @@
 package org.diffkit.diff.diffor.tst
 
 
-import org.diffkit.diff.diffor.DKIdentityDiffor;
-
-import groovy.util.GroovyTestCase;
+import org.diffkit.diff.diffor.DKIdentityDiffor
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestIdentityDiffor extends GroovyTestCase {
-	
+public class TestIdentityDiffor {
+
+	@Test
 	public void testDiff(){
 		
 		def lhs = 'hello'

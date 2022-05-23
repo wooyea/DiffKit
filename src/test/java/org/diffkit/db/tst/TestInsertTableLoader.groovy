@@ -15,6 +15,7 @@
  */
 package org.diffkit.db.tst
 
+import org.junit.Test
 
 import java.io.File;
 
@@ -27,14 +28,13 @@ import org.diffkit.db.DKDBPrimaryKey
 import org.diffkit.db.DKDBTable;
 import org.diffkit.util.DKResourceUtil 
 
-import groovy.util.GroovyTestCase;
-
 
 /**
  * @author jpanico
  */
-public class TestInsertTableLoader extends GroovyTestCase {
-   
+public class TestInsertTableLoader {
+
+   @Test
    public void testLoader(){
       //      DKDBConnectionInfo connectionInfo = ['oracle', DKDBFlavor.ORACLE,'XE', '10.0.1.11', 1521, 'diffkit', 'diffkit']
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']

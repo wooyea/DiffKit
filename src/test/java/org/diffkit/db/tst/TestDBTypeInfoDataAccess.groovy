@@ -19,16 +19,16 @@ package org.diffkit.db.tst
 import org.diffkit.db.DKDBConnectionInfo;
 import org.diffkit.db.DKDatabase 
 import org.diffkit.db.DKDBFlavor;
-import org.diffkit.db.DKDBTypeInfoDataAccess 
-
-import groovy.util.GroovyTestCase;
+import org.diffkit.db.DKDBTypeInfoDataAccess
+import org.junit.Test
 
 
 /**
  * @author jpanico
  */
-public class TestDBTypeInfoDataAccess extends GroovyTestCase {
-   
+public class TestDBTypeInfoDataAccess {
+
+   @Test
    public void testMap(){
       
       //      DKDBConnectionInfo connectionInfo = ['db2', DKDBFlavor.DB2,'SAMPLE', '10.0.1.11', 50000, 'db2admin', 'torabora']

@@ -19,14 +19,15 @@ package org.diffkit.util.tst
 
 import org.diffkit.util.DKMapUtil;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestMapUtil extends GroovyTestCase {
-   
+public class TestMapUtil {
+
+   @Test
    public void testValueForKeyPrefix(){
       
       def target = ['aaa111':'value1', 'bbb111':'value2','ccc111':'value3','ccc112':'value4','ddd111':'value5']

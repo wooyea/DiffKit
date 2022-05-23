@@ -17,17 +17,16 @@ package org.diffkit.diff.sns.tst
 
 
 import org.diffkit.diff.engine.DKTableModel;
-import org.diffkit.diff.sns.DKListSource 
-
-import groovy.util.GroovyTestCase;
+import org.diffkit.diff.sns.DKListSource
+import org.junit.Test
 
 
 /**
  * @author jpanico
  */
-public class TestListSource extends GroovyTestCase {
-	
-	
+public class TestListSource {
+
+	@Test
 	public void testSource(){
 		
 		DKTableModel model = DKTableModel.createGenericStringModel(4, (int[])[2]);

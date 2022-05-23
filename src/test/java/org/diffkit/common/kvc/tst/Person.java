@@ -7,7 +7,7 @@ package org.diffkit.common.kvc.tst;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

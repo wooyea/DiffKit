@@ -4,7 +4,7 @@
  */
 package org.diffkit.common.kvc.tst;
 
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 /**
  * @author jpanico

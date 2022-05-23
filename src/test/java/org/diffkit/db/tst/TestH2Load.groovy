@@ -24,14 +24,15 @@ import org.diffkit.db.DKDBTableDataAccess;
 import org.diffkit.util.DKResourceUtil;
 import org.diffkit.util.DKSqlUtil;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestH2Load extends GroovyTestCase {
-	
+public class TestH2Load {
+
+	@Test
 	public void testLoader(){
 		DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
 		println "connectionInfo->$connectionInfo"
@@ -64,7 +65,8 @@ public class TestH2Load extends GroovyTestCase {
 		assert DKSqlUtil.executeUpdate('DROP TABLE CUSTOMER', connection)
 		DKSqlUtil.close(connection)
 	}
-	
+
+	@Test
 	public void testLoad(){
 		
 		DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
@@ -91,7 +93,8 @@ public class TestH2Load extends GroovyTestCase {
 		
 		assert DKSqlUtil.executeUpdate('DROP TABLE customer', connection)
 	}
-	
+
+	@Test
 	public void testReadFromCSV(){
 		def csvFile = this.getCsvFile()
 		def selectSql =  "SELECT * FROM CSVREAD('${csvFile.getAbsolutePath()}');"

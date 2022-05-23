@@ -24,17 +24,19 @@ import org.diffkit.db.DKDBFlavor;
 import org.diffkit.db.DKDBPrimaryKey 
 import org.diffkit.db.DKDBTable;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestDBDatabase extends GroovyTestCase {
-   
+public class TestDBDatabase {
+
+   @Test
    public void testConcreteKeyTypeInfos() {
    }
-   
+
+   @Test
    public void testGenerateUpdate() {
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"
@@ -47,7 +49,8 @@ public class TestDBDatabase extends GroovyTestCase {
       println "updateSQLString->$updateSQLString"
       assert updateSQLString == "UPDATE CUSTOMER\nSET address='update-addr1', country='update-country'\nWHERE (first_name='bob' ) AND (last_name='smith' )"
    }
-   
+
+   @Test
    public void testGenerateDelete() {
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"
@@ -59,7 +62,8 @@ public class TestDBDatabase extends GroovyTestCase {
       println "deleteSQLString->$deleteSQLString"
       assert deleteSQLString == "DELETE FROM CUSTOMER\nWHERE (first_name='bob' ) AND (last_name='smith' )"
    }
-   
+
+   @Test
    public void testKeyTypeInfos() {
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"
@@ -72,7 +76,8 @@ public class TestDBDatabase extends GroovyTestCase {
       assert keyTypeInfos[0].type == DKDBType.VARCHAR
       assert keyTypeInfos[1].type == DKDBType.VARCHAR
    }
-   
+
+   @Test
    public void testGenerateInsert() {
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"
@@ -83,7 +88,8 @@ public class TestDBDatabase extends GroovyTestCase {
       def insertSQLString = database.generateInsertDML(row, table)
       assert insertSQLString == "INSERT INTO CUSTOMER (first_name, last_name, address, city, country, age)\nVALUES ('bob', 'smith', 'addr1', 'city', 'country', 55)"
    }
-   
+
+   @Test
    public void testSupportsType() {
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"
@@ -92,7 +98,8 @@ public class TestDBDatabase extends GroovyTestCase {
       assert database.supportsType('VARCHAR')
       assert database.supportsType('BOOLEAN')
    }
-   
+
+   @Test
    public void testCanConnect(){
       
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
@@ -100,7 +107,8 @@ public class TestDBDatabase extends GroovyTestCase {
       DKDatabase database = [connectionInfo]
       assert database.canConnect()
    }
-   
+
+   @Test
    public void testTableExists(){
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test;DB_CLOSE_DELAY=-1", null, null, 'test', 'test']
       DKDatabase database = [connectionInfo]
@@ -114,7 +122,8 @@ public class TestDBDatabase extends GroovyTestCase {
       assert database.dropTable(table)
       assert !database.tableExists(table)
    }
-   
+
+   @Test
    public void testH2(){
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"
@@ -127,7 +136,8 @@ public class TestDBDatabase extends GroovyTestCase {
       println "meta->$meta"
       assert meta
    }
-   
+
+   @Test
    private DKDBTable createCustomerMetaTable(){
       DKDBColumn column1 = ['first_name', 1, 'VARCHAR', 20, true]
       DKDBColumn column2 = ['last_name', 2, 'VARCHAR', -1, true]

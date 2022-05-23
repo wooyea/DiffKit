@@ -17,18 +17,18 @@ package org.diffkit.util.tst
  */
 
 
-import groovy.util.GroovyTestCase;
-
 import org.diffkit.db.DKDBFlavor;
 import org.diffkit.diff.testcase.TestCaseRunner;
-import org.diffkit.util.DKStringUtil;
+import org.diffkit.util.DKStringUtil
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestStringUtil extends GroovyTestCase {
+public class TestStringUtil {
    
+   @Test
    public void testStringNumberComparator() {
       assert DKStringUtil.StringNumberComparator.INSTANCE.compare( null, null) == 0
       assert DKStringUtil.StringNumberComparator.INSTANCE.compare( 'aaa', null) == 0
@@ -43,7 +43,8 @@ public class TestStringUtil extends GroovyTestCase {
       assert DKStringUtil.StringNumberComparator.INSTANCE.compare( 'aaaa100', 'bb200bb') == -1
       assert DKStringUtil.StringNumberComparator.INSTANCE.compare( 'aaaa-100', 'bb200bb') == -1
    }
-   
+
+   @Test
    public void testExtractFirstInteger() {
       assert ! DKStringUtil.extractFirstInteger(null)
       assert ! DKStringUtil.extractFirstInteger('asdbef-dasdfa')
@@ -52,7 +53,8 @@ public class TestStringUtil extends GroovyTestCase {
       assert DKStringUtil.extractFirstInteger('15asdbef-0da25sdfa') == 15
       assert DKStringUtil.extractFirstInteger('sdfa15') == 15
    }
-   
+
+   @Test
    public void testParseIntegers() {
       assert ! DKStringUtil.parseIntegers(null)
       assert  DKStringUtil.parseIntegers("1-2") == [1,2]
@@ -60,20 +62,23 @@ public class TestStringUtil extends GroovyTestCase {
       assert  DKStringUtil.parseIntegers("1,2") == [1,2]
       assert  DKStringUtil.parseIntegers(" 0, 10 ") == [0,10]
    }
-   
+
+   @Test
    public void testParseIntegerRange() {
       assert ! DKStringUtil.parseIntegerRange(null)
       assert  DKStringUtil.parseIntegerRange("1-2") == [1,2]
       assert  DKStringUtil.parseIntegerRange(" 0 - 10 ") == [0,1,2,3,4,5,6,7,8,9,10]
    }
-   
+
+   @Test
    public void testParseEnumList() {
       def enumList = DKStringUtil.parseEnumList('ORACLE,DB2,H2', DKDBFlavor)
       assert enumList
       assert enumList.size() == 3
       assert enumList[1] == DKDBFlavor.DB2
    }
-   
+
+   @Test
    public void testParseIntegerList() {
       def integerList = DKStringUtil.parseIntegerList('1,2,3,4')
       assert integerList
@@ -81,7 +86,8 @@ public class TestStringUtil extends GroovyTestCase {
       assert integerList[2] == 3
       assert integerList[2] instanceof Integer
    }
-   
+
+   @Test
    public void testToSetString(){
       assert DKStringUtil.toSetString(['a','b']) == '(a, b)'
       assert DKStringUtil.toSetString([]) == '()'
@@ -89,7 +95,8 @@ public class TestStringUtil extends GroovyTestCase {
       assert DKStringUtil.toSetString(target) == '(a, b)'
       assert DKStringUtil.toSetString(null) == '()'
    }
-   
+
+   @Test
    public void testQuote(){
       assert ! DKStringUtil.quote(null,DKStringUtil.Quote.DOUBLE) 
       assert DKStringUtil.quote("",DKStringUtil.Quote.DOUBLE) == '""'
@@ -97,6 +104,7 @@ public class TestStringUtil extends GroovyTestCase {
       assert DKStringUtil.quote("'string'",DKStringUtil.Quote.SINGLE) == "'string'"
    }
    
+   @Test
    public void testQuoteEach(){
       String[] searchStrings = ['xxxx','yyyy']
       def target = 'in this age xxxx of yyyy affordable beauty, there was something \n xxxx heraldic'
@@ -105,7 +113,8 @@ public class TestStringUtil extends GroovyTestCase {
       assert DKStringUtil.quoteAllOccurrencesOfEach(target,null,DKStringUtil.Quote.DOUBLE) == target
       assert DKStringUtil.quoteAllOccurrencesOfEach(target,searchStrings,DKStringUtil.Quote.DOUBLE) == 'in this age "xxxx" of "yyyy" affordable beauty, there was something \n "xxxx" heraldic'
    }
-   
+
+   @Test
    public void testUnquote() {
       assert ! DKStringUtil.unquote((String)null,DKStringUtil.Quote.DOUBLE)
       assert DKStringUtil.unquote('hello',DKStringUtil.Quote.DOUBLE) == 'hello'
@@ -113,7 +122,8 @@ public class TestStringUtil extends GroovyTestCase {
       assert DKStringUtil.unquote('"hello"',DKStringUtil.Quote.DOUBLE) == 'hello'
       assert DKStringUtil.unquote('""',DKStringUtil.Quote.DOUBLE) == ''
    }
-   
+
+   @Test
    public void testReplaceEach(){
       def source =   '''Beware the Jabberwock, my son!
                         The jaws that bite, the claws that catch!

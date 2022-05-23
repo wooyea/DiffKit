@@ -26,14 +26,15 @@ import org.diffkit.db.DKDBPrimaryKey
 import org.diffkit.db.DKDBTable;
 import org.diffkit.util.DKSqlUtil;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestSqlUtil extends GroovyTestCase {
-   
+public class TestSqlUtil {
+
+   @Test
    public void testBatchUpdate() {
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test;DB_CLOSE_DELAY=-1", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"

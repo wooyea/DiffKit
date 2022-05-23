@@ -19,14 +19,15 @@ package org.diffkit.util.tst
 
 import org.diffkit.util.DKResourceUtil 
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestResourceUtil extends GroovyTestCase {
-   
+public class TestResourceUtil {
+
+   @Test
    public void testFindResource(){
       
       assert DKResourceUtil.findResourceAsFile('prepend_target.txt', this)

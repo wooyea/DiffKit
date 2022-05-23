@@ -18,14 +18,15 @@ package org.diffkit.common.tst
 
 import org.diffkit.common.DKMapKeyValueComparator 
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestMapKeyValueComparator extends GroovyTestCase {
-	
+public class TestMapKeyValueComparator {
+
+	@Test
 	public void testCompare(){
 		
 		def map0 = ['key1':'aaaa', 'key2':3]

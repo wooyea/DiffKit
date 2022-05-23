@@ -26,19 +26,21 @@ import org.diffkit.diff.engine.DKSourceSink;
 import org.diffkit.diff.sns.DKDBSource 
 import org.diffkit.diff.sns.DKFileSource 
 import org.diffkit.util.DKResourceUtil;
-import org.diffkit.db.DKDBFlavor;
+import org.diffkit.db.DKDBFlavor
+import org.junit.Test;
 
 
 
 /**
  * @author jpanico
  */
-public class TestMagicPlanBuilder extends GroovyTestCase {
+public class TestMagicPlanBuilder {
    
    /**
     * test that including two mutually exclusive properties, properties that trigger 
     * mutually exclusive rules, results in Exception
     */
+   @Test
    public void testMagicExclusion() {
       def lhsFileResourcePath = 'org/diffkit/diff/conf/tst/test.lhs.csv'
       def rhsFileResourcePath = 'org/diffkit/diff/conf/tst/test.rhs.csv'
@@ -57,7 +59,8 @@ public class TestMagicPlanBuilder extends GroovyTestCase {
          assert builtPlan
       }
    }
-   
+
+   @Test
    public void testFullyMagicFileBuild(){
       def lhsFileResourcePath = 'org/diffkit/diff/conf/tst/test.lhs.csv'
       def rhsFileResourcePath = 'org/diffkit/diff/conf/tst/test.rhs.csv'
@@ -100,7 +103,8 @@ public class TestMagicPlanBuilder extends GroovyTestCase {
       assert tableComparison.diffIndexes == [1,2]
       assert tableComparison.displayIndexes == [[0],[0]]
    }
-   
+
+   @Test
    public void testFullyMagicDBBuild(){
       DBTestSetup.setupDB(new File('org/diffkit/diff/conf/tst/test.dbsetup.xml'), (File[])[new File('org/diffkit/diff/conf/tst/dbConnectionInfo.xml')], 'org/diffkit/diff/conf/tst/test.lhs.csv', 'org/diffkit/diff/conf/tst/test.rhs.csv')
       DKDBConnectionInfo dbConnectionInfo = ['test', DKDBFlavor.H2, 'mem:conf.test;DB_CLOSE_DELAY=-1', null, null, 'test', 'test']

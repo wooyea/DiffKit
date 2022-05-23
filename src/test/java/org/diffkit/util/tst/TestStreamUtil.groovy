@@ -15,21 +15,21 @@
  */
 package org.diffkit.util.tst
 
-
+import org.junit.Test
 
 import java.io.ByteArrayInputStream;
 
 import org.diffkit.util.DKStreamUtil;
 
 
-import groovy.util.GroovyTestCase;
 
 
 /**
  * @author jpanico
  */
-public class TestStreamUtil extends GroovyTestCase {
-   
+public class TestStreamUtil {
+
+   @Test
    public void testCopy(){
       def inString = 
             """Beware the Jabberwock, my son! 

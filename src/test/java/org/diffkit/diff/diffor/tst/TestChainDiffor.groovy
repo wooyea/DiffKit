@@ -20,14 +20,15 @@ import org.diffkit.diff.diffor.DKChainDiffor;
 import org.diffkit.diff.diffor.DKEqualsDiffor;
 import org.diffkit.diff.diffor.DKIdentityDiffor;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestChainDiffor extends GroovyTestCase {
-	
+public class TestChainDiffor {
+
+	@Test
 	public void testDiff(){
 		
 		def lhs = new String('hello')

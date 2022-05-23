@@ -21,14 +21,15 @@ import org.diffkit.diff.diffor.DKEqualsDiffor;
 import org.diffkit.diff.engine.DKColumnComparison 
 import org.diffkit.diff.engine.DKColumnModel;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestColumnComparison extends GroovyTestCase {
-	
+public class TestColumnComparison {
+
+	@Test
 	public void testDiff(){
 		
 		Object[] lhs = ['value1', 'value2', 3, 'value4'] 

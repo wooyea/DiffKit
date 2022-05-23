@@ -18,15 +18,17 @@ package org.diffkit.common.tst
 import org.diffkit.common.DKCalendarSpan;
 import org.diffkit.common.DKConstructor 
 
-import groovy.util.GroovyTestCase;
-import java.lang.reflect.Constructor 
+import org.junit.Test;
+
+import java.lang.reflect.Constructor
 
 
 /**
  * @author jpanico
  */
-public class TestConstructor extends GroovyTestCase {
-	
+public class TestConstructor {
+
+	@Test
 	public void testFindParameterNames(){
 		
 		Constructor constructor = DKCalendarSpan.class.getConstructors()[0]

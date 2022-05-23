@@ -20,14 +20,15 @@ package org.diffkit.diff.engine.tst
 import org.diffkit.diff.engine.DKColumnModel;
 import org.diffkit.diff.engine.DKTableModel 
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestTableModel extends GroovyTestCase {
-	
+public class TestTableModel {
+
+	@Test
 	public void testKeyValues(){
 		DKColumnModel column1_1 = [0, 'column1_1', DKColumnModel.Type.STRING]
 		DKColumnModel column1_2 = [1, 'column1_2', DKColumnModel.Type.STRING]

@@ -19,9 +19,9 @@ import java.io.File;
 import java.lang.reflect.Constructor;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.ClassUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.ClassUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import org.diffkit.common.DKValidate;
 

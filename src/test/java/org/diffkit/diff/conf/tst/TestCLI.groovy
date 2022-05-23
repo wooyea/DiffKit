@@ -22,17 +22,17 @@ import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
-import org.apache.commons.cli.PosixParser;
+import org.apache.commons.cli.PosixParser
+import org.junit.Test;
 
-
-import groovy.util.GroovyTestCase;
 
 
 /**
  * @author jpanico
  */
-public class TestCLI extends GroovyTestCase {
-   
+public class TestCLI {
+
+   @Test
    public void testParse(){
       Options OPTIONS = []
       OptionBuilder.hasOptionalArgs(2)

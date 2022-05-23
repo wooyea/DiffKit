@@ -18,23 +18,25 @@ package org.diffkit.diff.diffor.tst
 
 
 
-import groovy.util.GroovyTestCase;
-import org.apache.commons.beanutils.converters.IntegerConverter 
+import org.apache.commons.beanutils.converters.IntegerConverter
 import org.diffkit.diff.diffor.DKConvertingDiffor 
-import org.diffkit.diff.diffor.DKEqualsDiffor;
+import org.diffkit.diff.diffor.DKEqualsDiffor
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestConvertingDiffor extends GroovyTestCase {
-   
+public class TestConvertingDiffor {
+
+   @Test
    public void testDiff(){
       
       DKConvertingDiffor diffor = [null, Long.class, DKEqualsDiffor.instance]
       assert ! diffor.isDiff(new Long(1234), '1234', null)
    }
-   
+
+   @Test
    public void testConvert(){
       
       assert new IntegerConverter(true).convert(Long.class, '1234') == 1234

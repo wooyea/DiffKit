@@ -15,11 +15,9 @@
  */
 package org.diffkit.diff.sns.tst
 
+import org.junit.Test
 
-
-
-import groovy.util.GroovyTestCase;
-import java.sql.Time 
+import java.sql.Time
 import java.sql.Timestamp 
 
 import org.diffkit.diff.engine.DKColumnModel;
@@ -33,8 +31,9 @@ import org.diffkit.util.DKTimeUtil
 /**
  * @author jpanico
  */
-public class TestSpreadSheetSource extends GroovyTestCase {
-   
+public class TestSpreadSheetSource {
+
+   @Test
    public void testReadHard() {
       def sourceFile = DKResourceUtil.findResourceAsFile('xcel_test.xls', this)
       println "sourceFile->$sourceFile"
@@ -73,7 +72,8 @@ public class TestSpreadSheetSource extends GroovyTestCase {
       assert ! source.nextRow
       assert source.lastIndex == 3
    }
-   
+
+   @Test
    public void testReadEasy() {
       def sourceFile = DKResourceUtil.findResourceAsFile('xcel_test.xls', this)
       println "sourceFile->$sourceFile"
@@ -122,7 +122,8 @@ public class TestSpreadSheetSource extends GroovyTestCase {
       assert ! source.nextRow
       assert source.lastIndex == 19
    }
-   
+
+   @Test
    public void testModelColumns() {
       def sourceFile = DKResourceUtil.findResourceAsFile('xcel_test.xls', this)
       println "sourceFile->$sourceFile"

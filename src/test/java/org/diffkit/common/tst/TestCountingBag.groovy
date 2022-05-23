@@ -18,18 +18,17 @@ package org.diffkit.common.tst
 
 
 
-import org.apache.commons.collections.bidimap.TreeBidiMap 
-import org.diffkit.common.DKCountingBag 
+import org.diffkit.common.DKCountingBag
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestCountingBag extends GroovyTestCase {
-      
-   
+public class TestCountingBag {
+
+   @Test
    public void testCount(){
       DKCountingBag target = []
       assert target.getCount(null) == 0

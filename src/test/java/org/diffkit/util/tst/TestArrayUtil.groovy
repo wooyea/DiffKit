@@ -19,14 +19,15 @@ package org.diffkit.util.tst
 
 import org.diffkit.util.DKArrayUtil;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestArrayUtil extends GroovyTestCase {
-   
+public class TestArrayUtil {
+
+   @Test
    public void testRemoveElements(){
       
       assert !DKArrayUtil.removeElementsAtIndices(null, null) 

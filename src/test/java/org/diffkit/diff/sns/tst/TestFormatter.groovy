@@ -27,15 +27,15 @@ import org.diffkit.diff.engine.DKDiff;
 import org.diffkit.diff.sns.DKDefaultFormatter;
 import org.diffkit.diff.diffor.DKEqualsDiffor
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestFormatter  extends GroovyTestCase {
-	
-	
+public class TestFormatter  {
+
+	@Test
 	public void testDefaultFormatter(){
 		Object[] row = ['1111', '1111', 1]
 		def plan = this.createSimplePlan()

@@ -29,16 +29,16 @@ import org.diffkit.db.DKDBType;
 import org.diffkit.db.DKDBTypeInfo;
 import org.diffkit.db.DKDatabase 
 import org.diffkit.db.DKDBFlavor;
-import org.diffkit.db.DKDBTableDataAccess 
-
-import groovy.util.GroovyTestCase;
+import org.diffkit.db.DKDBTableDataAccess
+import org.junit.Test
 
 
 /**
  * @author jpanico
  */
-public class TestVolatileStuff extends GroovyTestCase {
-   
+public class TestVolatileStuff {
+
+   @Test
    public void testH2(){
       
       DKDBConnectionInfo connectionInfo = ['h2', DKDBFlavor.H2,'mem:test;DB_CLOSE_DELAY=-1', null, -1, 'test', 'test']
@@ -48,7 +48,8 @@ public class TestVolatileStuff extends GroovyTestCase {
       println "tableDataAccess->$tableDataAccess"
       assert database.supportsType('VARCHAR')
    }
-   
+
+   @Test
    public void tXstHyperServer(){
       DKDBConnectionInfo connectionInfo = ['hyper', DKDBFlavor.HYPERSQL,'xdb', 'localhost', null, 'SA', '']
       println "connectionInfo->$connectionInfo"
@@ -64,7 +65,8 @@ public class TestVolatileStuff extends GroovyTestCase {
       createdTable = database.createTable(table)
       assert createdTable
    }
-   
+
+   @Test
    public void tXstHyperWeird(){
       DKDBConnectionInfo connectionInfo = ['hyper', DKDBFlavor.HYPERSQL,'mem:test', null, -1, 'SA', '']
       println "connectionInfo->$connectionInfo"
@@ -80,7 +82,8 @@ public class TestVolatileStuff extends GroovyTestCase {
       createdTable = database.createTable(table)
       assert createdTable
    }
-   
+
+   @Test
    public void tXstHyperSQL(){
       DKDBConnectionInfo connectionInfo = ['hyper', DKDBFlavor.HYPERSQL,'mem:test', null, -1, 'SA', '']
       println "connectionInfo->$connectionInfo"
@@ -102,7 +105,8 @@ public class TestVolatileStuff extends GroovyTestCase {
       assert columns[6].name == 'BIRTH'
       assert columns[6].DBTypeName == 'DATE'
    }
-   
+
+   @Test
    public void tXstPostgres(){
       DKDBConnectionInfo connectionInfo = ['postgres', DKDBFlavor.POSTGRES,'postgres', 'localhost', 5432, 'postgres', 'torabora']
       println "connectionInfo->$connectionInfo"
@@ -125,7 +129,8 @@ public class TestVolatileStuff extends GroovyTestCase {
       tables = tableDataAccess.getTables(null, null, 'TEST1_LHS_TABLE')
       assert tables[0]
    }
-   
+
+   @Test
    public void tXstSQLServer(){
       DKDBConnectionInfo connectionInfo = ['sqlserver', DKDBFlavor.SQLSERVER,'test', '10.0.1.9', 1433, 'diffkit', 'diffkit']
       println "connectionInfo->$connectionInfo"
@@ -142,7 +147,8 @@ public class TestVolatileStuff extends GroovyTestCase {
       assert tables[0].schema == 'dbo'
       assert database.supportsType('VARCHAR')
    }
-   
+
+   @Test
    public void tXstMySQL(){
       DKDBConnectionInfo connectionInfo = ['mysql', DKDBFlavor.MYSQL,'DiffKit', 'localhost', 3306, 'root', '']
       println "connectionInfo->$connectionInfo"
@@ -166,7 +172,8 @@ public class TestVolatileStuff extends GroovyTestCase {
       assert database.supportsType('VARCHAR')
       //      assert database.supportsType('BOOLEAN')
    }
-   
+
+   @Test
    public void tXstDB2(){
       DKDBConnectionInfo connectionInfo = ['db2', DKDBFlavor.DB2,'SAMPLE', '10.0.1.8', 50000, 'db2admin', 'torabora']
       println "connectionInfo->$connectionInfo"
@@ -183,7 +190,8 @@ public class TestVolatileStuff extends GroovyTestCase {
       assert tables.size() == 1
       assert tables[0].tableName == 'TABLES'
    }
-   
+
+   @Test
    public void tXstOracle(){
       DKDBConnectionInfo connectionInfo = ['oracle', DKDBFlavor.ORACLE,'XE', '10.0.1.8', 1521, 'diffkit', 'diffkit']
       println "connectionInfo->${connectionInfo.JDBCUrl}"

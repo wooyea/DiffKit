@@ -24,8 +24,8 @@ import org.slf4j.LoggerFactory
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
-import org.apache.commons.lang.ClassUtils 
-import org.apache.commons.lang.reflect.ConstructorUtils;
+import org.apache.commons.lang3.ClassUtils 
+import org.apache.commons.lang3.reflect.ConstructorUtils;
 
 import org.diffkit.common.DKRegexFilenameFilter;
 import org.diffkit.common.DKRuntime 

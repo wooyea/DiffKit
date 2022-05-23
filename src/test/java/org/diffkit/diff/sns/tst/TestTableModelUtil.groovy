@@ -25,15 +25,15 @@ import org.diffkit.db.DKDBTable;
 import org.diffkit.diff.engine.DKColumnModel;
 import org.diffkit.diff.sns.DKTableModelUtil;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestTableModelUtil extends GroovyTestCase {
-   
-   
+public class TestTableModelUtil {
+
+   @Test
    public void testCreateColumnModel(){
       def table = this.createCustomerMetaTable()
       def firstName = DKTableModelUtil.createDefaultColumnModel(DKDBFlavor.H2,table.columns[0])
@@ -47,7 +47,8 @@ public class TestTableModelUtil extends GroovyTestCase {
       assert age.index == 5
       assert age.type == DKColumnModel.Type.INTEGER
    }
-   
+
+   @Test
    public void testCreateTableModel(){
       def table = this.createCustomerMetaTable()
       def tableModel = DKTableModelUtil.createDefaultTableModel(DKDBFlavor.H2,table, null)

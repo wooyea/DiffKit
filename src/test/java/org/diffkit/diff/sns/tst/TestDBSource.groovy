@@ -15,6 +15,8 @@
  */
 package org.diffkit.diff.sns.tst
 
+import org.junit.Test
+
 import java.io.File;
 
 
@@ -34,14 +36,13 @@ import org.diffkit.diff.sns.DKTableModelUtil;
 import org.diffkit.util.DKResourceUtil
 import org.diffkit.util.DKTimeUtil;
 
-import groovy.util.GroovyTestCase;
-
 
 /**
  * @author jpanico
  */
-public class TestDBSource extends GroovyTestCase {
-   
+public class TestDBSource {
+
+   @Test
    public void testValidateKeyColumnNames() {
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"
@@ -55,7 +56,8 @@ public class TestDBSource extends GroovyTestCase {
       }
       assert database.dropTable( dbTable)
    }
-   
+
+   @Test
    public void testDescription() {
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"
@@ -69,7 +71,8 @@ public class TestDBSource extends GroovyTestCase {
       assert source.description  == 'DKDBSource[tableName=CUSTOMER, whereClause=null, keyColumnNames=[first_name], database=DKDBConnectionInfo[test(flavor=H2,database=mem:test,host=null,port=null)]]'
       assert database.dropTable( dbTable)
    }
-   
+
+   @Test
    public void testToString() {
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"
@@ -84,7 +87,8 @@ public class TestDBSource extends GroovyTestCase {
       assert source.toString().endsWith( '[CUSTOMER,jdbc:h2:mem:test]')
       assert database.dropTable( dbTable)
    }
-   
+
+   @Test
    public void testKeyColumnNames() {
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"
@@ -99,7 +103,8 @@ public class TestDBSource extends GroovyTestCase {
       assert model.key == [0]
       assert database.dropTable( dbTable)
    }
-   
+
+   @Test
    public void testRead(){
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']
       println "connectionInfo->$connectionInfo"

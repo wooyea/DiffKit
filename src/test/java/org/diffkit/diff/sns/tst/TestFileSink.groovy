@@ -15,11 +15,11 @@
  */
 package org.diffkit.diff.sns.tst
 
-import org.apache.commons.lang.StringUtils
+import org.apache.commons.lang3.StringUtils
 
 import java.io.File;
 
-import org.apache.commons.lang.ClassUtils;
+import org.apache.commons.lang3.ClassUtils;
 
 import org.diffkit.diff.diffor.DKEqualsDiffor;
 import org.diffkit.diff.engine.DKColumnComparison 
@@ -39,7 +39,7 @@ import org.diffkit.util.DKStringUtil;
 /**
  * @author jpanico
  */
-public class TestFileSink extends GroovyTestCase {
+public class TestFileSink {
 	
 	
 	public void testSink(){

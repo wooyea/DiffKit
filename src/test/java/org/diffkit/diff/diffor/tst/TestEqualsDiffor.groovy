@@ -19,14 +19,15 @@ package org.diffkit.diff.diffor.tst
 
 import org.diffkit.diff.diffor.DKEqualsDiffor;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestEqualsDiffor extends GroovyTestCase {
-	
+public class TestEqualsDiffor {
+
+	@Test
 	public void testDiff(){
 		
 		def lhs = 'hello'

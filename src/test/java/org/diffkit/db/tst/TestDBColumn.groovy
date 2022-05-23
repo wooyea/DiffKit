@@ -20,14 +20,15 @@ import org.diffkit.db.DKDBColumn
 import org.diffkit.db.DKDBType;
 import org.diffkit.db.DKDBTypeInfo;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestDBColumn extends GroovyTestCase {
-   
+public class TestDBColumn {
+
+   @Test
    public void testCompareTo(){
       DKDBColumn[] columns = new DKDBColumn[4]
       columns[0] = new DKDBColumn('col4',4,'VARCHAR',-1,false)

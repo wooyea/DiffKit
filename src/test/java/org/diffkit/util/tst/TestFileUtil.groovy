@@ -15,7 +15,7 @@
  */
 package org.diffkit.util.tst
 
-
+import org.junit.Test
 
 import java.io.File;
 import org.apache.commons.io.FileUtils 
@@ -27,15 +27,17 @@ import org.diffkit.util.DKResourceUtil
 /**
  * @author jpanico
  */
-public class TestFileUtil extends GroovyTestCase {
+public class TestFileUtil {
    
    /**
     * does it work from relative paths, or just absolute?
     */
+   @Test
    public void testCanRead() {
       assert DKFileUtil.canReadFilePaths((String[]) ['src/test/resources/logback.xml'])
    }
-   
+
+   @Test
    public void testPrepend() {
       File sourceTarget = DKResourceUtil.findResourceAsFile("org/diffkit/util/tst/prepend_target.txt")
       assert sourceTarget
@@ -49,7 +51,8 @@ public class TestFileUtil extends GroovyTestCase {
       
       assert prependedText == prependString + sourceText
    }
-   
+
+   @Test
    public void testCopyWithSubstitution() {
       File sourceFile = DKResourceUtil.findResourceAsFile("org/diffkit/util/tst/copyWithSubstitution_target.txt")
       assert sourceFile
@@ -63,7 +66,8 @@ public class TestFileUtil extends GroovyTestCase {
       
       assert copiedText == expectedText
    }
-   
+
+   @Test
    public void testCopyDirectory() {
       File sourceFile = DKResourceUtil.findResourceAsFile("org/diffkit/util/tst/copyWithSubstitution_target.txt")
       assert sourceFile
@@ -90,7 +94,8 @@ public class TestFileUtil extends GroovyTestCase {
       
       assert copiedText == expectedText
    }
-   
+
+   @Test
    public void testIsRelative(){
       println "separtor->${File.separator}"
       println "path->${new File('./tstscratch/')}"

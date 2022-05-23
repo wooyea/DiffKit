@@ -27,14 +27,15 @@ import org.diffkit.diff.engine.DKSide;
 import org.diffkit.diff.engine.DKStandardTableComparison 
 import org.diffkit.diff.engine.DKTableModel 
 
-import groovy.util.GroovyTestCase
+import org.junit.Test
 
 
 /**
  * @author jpanico
  */
-public class TestTableComparison extends GroovyTestCase {
-	
+public class TestTableComparison {
+
+	@Test
 	public void testRowDisplayValues(){
 		DKColumnModel column1_1 = [0, 'column1', DKColumnModel.Type.STRING]
 		DKColumnModel column1_2 = [1, 'column2', DKColumnModel.Type.STRING]
@@ -110,7 +111,8 @@ public class TestTableComparison extends GroovyTestCase {
 		rowDisplayValues = plan.getRowDisplayValues((Object[])['zzzz', 'zzzz', 1], (Object[])['zzzz', 'zzzz', 1])
 		assert rowDisplayValues == [column1_1:'zzzz:', column2_1:':zzzz', column3:'1']
 	}
-	
+
+	@Test
 	public void testSimpleRowDisplayValues() {
 		DKColumnModel column1_1 = [0, 'column1', DKColumnModel.Type.STRING]
 		DKColumnModel column1_2 = [1, 'column2', DKColumnModel.Type.STRING]
@@ -129,7 +131,8 @@ public class TestTableComparison extends GroovyTestCase {
 		//		println "rowDisplayValues->$rowDisplayValues"
 		assert rowDisplayValues == [column1:'zzzz', column3:'<null>']
 	}
-	
+
+	@Test
 	public void testComparatorSort(){
 		DKColumnModel column1_1 = [0, 'column1_1', DKColumnModel.Type.STRING]
 		DKColumnModel column1_2 = [1, 'column1_2', DKColumnModel.Type.STRING]
@@ -158,7 +161,8 @@ public class TestTableComparison extends GroovyTestCase {
 		
 		assert rows == [l4,l3,l1,l2]
 	}
-	
+
+	@Test
 	public void testIdenticalTablesSimpleKeyComparator(){
 		DKColumnModel column1 = [0, 'column1', DKColumnModel.Type.STRING]
 		DKColumnModel column2 = [1, 'column2', DKColumnModel.Type.STRING]
@@ -192,7 +196,8 @@ public class TestTableComparison extends GroovyTestCase {
 		assert comparator.compare(lhs, rhs) ==0
 		
 	}
-	
+
+	@Test
 	public void testFailures(){
 		DKColumnModel column1_1 = [0, 'column1_1', DKColumnModel.Type.STRING]
 		DKColumnModel[] columns = [column1_1]
@@ -221,7 +226,8 @@ public class TestTableComparison extends GroovyTestCase {
 			def DKStandardTableComparison plan = new DKStandardTableComparison(lhsTable, rhsTable,  DKDiff.Kind.BOTH, map, (int[])[1], null, 100)
 		}
 	}
-	
+
+	@Test
 	public void testDifferentTablesCompoundKeyComparator(){
 		DKColumnModel column1_1 = [0, 'column1_1', DKColumnModel.Type.STRING]
 		DKColumnModel column1_2 = [1, 'column1_2', DKColumnModel.Type.STRING]

@@ -19,14 +19,15 @@ package org.diffkit.db.tst
 import org.diffkit.db.DKDBConnectionInfo;
 import org.diffkit.db.DKDBFlavor;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestDBConnectionInfobleComparator extends GroovyTestCase {
-   
+public class TestDBConnectionInfobleComparator {
+
+   @Test
    public void testH2(){
       
       DKDBConnectionInfo connectionInfo = ['test', DKDBFlavor.H2,"mem:test", null, null, 'test', 'test']

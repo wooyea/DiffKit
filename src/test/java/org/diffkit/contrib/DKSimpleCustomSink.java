@@ -23,7 +23,7 @@ import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.Map;
 
-import org.apache.commons.lang.ClassUtils;
+import org.apache.commons.lang3.ClassUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -15,13 +15,12 @@
  */
 package org.diffkit.diff.engine.tst
 
-import org.apache.commons.lang.StringUtils
+import org.apache.commons.lang3.StringUtils
+import org.junit.Test
 
 import java.io.File;
 
-import org.apache.commons.lang.ClassUtils;
-
-import groovy.util.GroovyTestCase
+import org.apache.commons.lang3.ClassUtils;
 
 import org.diffkit.common.DKComparatorChain;
 import org.diffkit.common.DKMapKeyValueComparator;
@@ -61,11 +60,12 @@ import org.diffkit.util.DKStringUtil;
 /**
  * @author jpanico
  */
-public class TestEngine extends GroovyTestCase {
+public class TestEngine {
    
    /**
     * both sides use the same TableModel, but there are diffs of each sort; uses DBSources
     */
+   @Test
    public void testSameModelFromDBToDB(){
       def database = this.getDatabase()
       def connection = database.connection
@@ -139,6 +139,7 @@ public class TestEngine extends GroovyTestCase {
    /**
     * both sides use the same TableModel, but there are diffs of each sort; uses DBSources
     */
+   @Test
    public void testSameModelFromDB(){
       def database = this.getDatabase()
       def connection = database.connection

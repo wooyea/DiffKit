@@ -18,14 +18,15 @@ package org.diffkit.common.tst
 
 import org.diffkit.common.DKComparableComparator;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestComparableComparator extends GroovyTestCase {
-	
+public class TestComparableComparator {
+
+	@Test
 	public void testCompare(){
 		
 		assert DKComparableComparator.instance.compare(3,3) == 0

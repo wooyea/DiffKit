@@ -21,14 +21,15 @@ import org.diffkit.diff.sns.DKListSink;
 import org.diffkit.diff.sns.DKPoiSheet;
 import org.diffkit.util.DKClassUtil;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestClassUtil extends GroovyTestCase {
-   
+public class TestClassUtil {
+
+   @Test
    public void testFindStaticField(){
       assert !DKClassUtil.findStaticField( 'DOES_NOT_EXIST', DKPoiSheet.class)
       assert DKClassUtil.findStaticField( 'HANDLED_FILE_EXTENSIONS', DKPoiSheet.class)
@@ -37,7 +38,8 @@ public class TestClassUtil extends GroovyTestCase {
       // finds static field in the super of the target, not target
       assert DKClassUtil.findStaticField( 'COLUMN_CLUSTER_KEY_SEPARATOR', DKListSink.class)
    }
-   
+
+   @Test
    public void testCreateInstance(){
       
       def created = DKClassUtil.createInstance(String.class, "hello")

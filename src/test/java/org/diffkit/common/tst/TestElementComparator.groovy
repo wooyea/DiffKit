@@ -18,14 +18,15 @@ package org.diffkit.common.tst
 import org.diffkit.common.DKComparableComparator;
 import org.diffkit.common.DKElementComparator;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestElementComparatorentComparator extends GroovyTestCase {
-	
+public class TestElementComparatorentComparator {
+
+	@Test
 	public void testCompare(){
 		
 		Object[] lhs = ['value1', 'value2', 3, 'value4', 2] 

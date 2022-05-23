@@ -7,13 +7,14 @@ package org.diffkit.common.kvc.tst
 
 import org.diffkit.common.kvc.DKKeyValueCoder;
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 /**
  * @author jpanico
  */
-public class TestKeyValueCoder extends GroovyTestCase {
-	
+public class TestKeyValueCoder {
+
+	@Test
 	public void testSetValueAtPath(){
 		Person grandma = new Person('grandma', false, null, null, null)
 		Person mom = ['mom', false, null, null, null]
@@ -33,7 +34,8 @@ public class TestKeyValueCoder extends GroovyTestCase {
 		assert me.mother.mother.state == 'FL' 
 		
 	}
-	
+
+	@Test
 	public void testGetValueAtPath(){
 		Person grandma = new Person('grandma', true, (Person)null, (Person)null, (Set)null)
 		grandma.state = 'FL'
@@ -52,7 +54,8 @@ public class TestKeyValueCoder extends GroovyTestCase {
 		assert DKKeyValueCoder.instance.getValueAtPath("mother.mother.name", me) == 'grandma'
 		assert DKKeyValueCoder.instance.getValueAtPath("mother.mother.isDead", me) 
 	}
-	
+
+	@Test
 	public void testSetValue(){
 		SubTarget target = ['superA', 'superB', 'superC', 'subA', 'subB', 'subC']
 		println "target->$target"
@@ -70,7 +73,8 @@ public class TestKeyValueCoder extends GroovyTestCase {
 		DKKeyValueCoder.instance.setValue('superVarA','newSuperA',target) 
 		assert target.superVarA == 'newSuperA'
 	}
-	
+
+	@Test
 	public void testGetValue(){
 		SubTarget target = ['superA', 'superB', 'superC', 'subA', 'subB', 'subC']
 		println "target->$target"
@@ -88,7 +92,8 @@ public class TestKeyValueCoder extends GroovyTestCase {
 		assert DKKeyValueCoder.instance.getValue('subVarC',target)  == 'subC'
 		assert DKKeyValueCoder.instance.getValue('pointerToSubVarC',target)  == 'subC'
 	}
-	
+
+	@Test
 	public void testFirstElement(){
 		assert ! DKKeyValueCoder.firstKeyPathElement(null) 
 		assert DKKeyValueCoder.firstKeyPathElement("in this age") == 'in this age'
@@ -108,7 +113,8 @@ public class TestKeyValueCoder extends GroovyTestCase {
 		assert DKKeyValueCoder.lastKeyPathElement(".hello.") == 'hello'
 		assert DKKeyValueCoder.lastKeyPathElement("a.regular.normal.path.hello.") == 'hello'
 	}
-	
+
+	@Test
 	public void testPathByRemovingFirst(){
 		assert ! DKKeyValueCoder.pathByRemovingFirstKeyPathElement(null) 
 		assert ! DKKeyValueCoder.pathByRemovingFirstKeyPathElement("in this age") 
@@ -118,7 +124,8 @@ public class TestKeyValueCoder extends GroovyTestCase {
 		assert ! DKKeyValueCoder.pathByRemovingFirstKeyPathElement(".hello.") 
 		assert DKKeyValueCoder.pathByRemovingFirstKeyPathElement("a.regular.normal.path.hello.") == 'regular.normal.path.hello'
 	}
-	
+
+	@Test
 	public void testPathByRemovingLast(){
 		assert ! DKKeyValueCoder.pathByRemovingLastKeyPathElement(null) 
 		assert !DKKeyValueCoder.pathByRemovingLastKeyPathElement("in this age") 
@@ -129,7 +136,8 @@ public class TestKeyValueCoder extends GroovyTestCase {
 		assert DKKeyValueCoder.pathByRemovingLastKeyPathElement("a.regular.normal.path.hello.") == 'a.regular.normal.path'
 		
 	}
-	
+
+	@Test
 	public void testKeyPathElements(){
 		assert ! DKKeyValueCoder.keyPathElements(null) 
 		assert DKKeyValueCoder.keyPathElements("in this age") == ((String[])['in this age'])
@@ -140,7 +148,8 @@ public class TestKeyValueCoder extends GroovyTestCase {
 		assert DKKeyValueCoder.keyPathElements("a.regular.normal.path.hello.") == ((String[])['a','regular','normal','path','hello' ])
 		
 	}
-	
+
+	@Test
 	public void testKeyPathElementCount(){
 		assert DKKeyValueCoder.keyPathElementCount(null) == 0 
 		assert DKKeyValueCoder.keyPathElementCount("in this age") == 1 

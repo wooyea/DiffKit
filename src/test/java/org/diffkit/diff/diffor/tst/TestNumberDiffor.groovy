@@ -19,14 +19,15 @@ package org.diffkit.diff.diffor.tst
 
 import org.diffkit.diff.diffor.DKNumberDiffor 
 
-import groovy.util.GroovyTestCase;
+import org.junit.Test;
 
 
 /**
  * @author jpanico
  */
-public class TestNumberDiffor extends GroovyTestCase {
-	
+public class TestNumberDiffor {
+
+	@Test
 	public void testDiff(){
 		
 		assert ! new DKNumberDiffor().isDiff( null, null, null)

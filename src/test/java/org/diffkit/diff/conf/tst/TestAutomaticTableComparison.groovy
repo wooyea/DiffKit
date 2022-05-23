@@ -19,16 +19,16 @@ import org.diffkit.diff.conf.DKAutomaticTableComparison;
 import org.diffkit.diff.engine.DKColumnModel
 import org.diffkit.diff.engine.DKDiff;
 import org.diffkit.diff.engine.DKTableModel 
-import org.diffkit.diff.sns.DKFileSource 
-
-import groovy.util.GroovyTestCase
+import org.diffkit.diff.sns.DKFileSource
+import org.junit.Test
 
 
 /**
  * @author jpanico
  */
-public class TestAutomaticTableComparison extends GroovyTestCase {
-	
+public class TestAutomaticTableComparison {
+
+	@Test
 	public void testDefault(){
 		def lhsFileResourcePath = 'org/diffkit/diff/conf/tst/test.lhs.csv'
 		def rhsFileResourcePath = 'org/diffkit/diff/conf/tst/test.rhs.csv'
