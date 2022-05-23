@@ -17,7 +17,7 @@ package org.diffkit.diff.diffor;
 
 import java.util.Date;
 
-import org.apache.commons.lang.ClassUtils;
+import org.apache.commons.lang3.ClassUtils;
 
 import org.diffkit.common.DKCalendarSpan;
 import org.diffkit.common.DKValidate;

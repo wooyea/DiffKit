@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 import org.apache.commons.collections.comparators.ComparatorChain;
-import org.apache.commons.lang.ClassUtils;
+import org.apache.commons.lang3.ClassUtils;
 
 /**
  * Subclass commons ComparatorChain just to get a decent looking toString()

@@ -20,7 +20,7 @@ import java.net.URI;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.lang.ClassUtils;
+import org.apache.commons.lang3.ClassUtils;
 import org.diffkit.common.DKValidate;
 import org.diffkit.diff.engine.DKContext;
 import org.diffkit.diff.engine.DKSource;

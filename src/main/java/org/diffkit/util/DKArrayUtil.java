@@ -7,7 +7,7 @@ package org.diffkit.util;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 
 /**
  * @author jpanico

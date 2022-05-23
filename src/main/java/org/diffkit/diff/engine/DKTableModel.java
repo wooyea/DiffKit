@@ -17,8 +17,8 @@ package org.diffkit.diff.engine;
 
 import java.util.Arrays;
 
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.ClassUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ClassUtils;
 
 import org.diffkit.common.DKValidate;
 import org.diffkit.common.annot.Immutable;

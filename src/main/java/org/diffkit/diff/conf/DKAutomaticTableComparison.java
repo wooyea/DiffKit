@@ -26,8 +26,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.collections.OrderedMap;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.math.NumberUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

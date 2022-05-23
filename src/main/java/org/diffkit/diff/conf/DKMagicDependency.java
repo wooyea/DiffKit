@@ -19,9 +19,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
-import org.apache.commons.lang.ClassUtils;
-import org.apache.commons.lang.ObjectUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.ClassUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -149,10 +149,10 @@ public class DKMagicDependency<T> {
     * resolved internally with whatever you've got
     */
    public Object resolve() throws InstantiationException, IllegalAccessException,
-      IllegalArgumentException, InvocationTargetException {
+           IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
       DKMagicDependency<?>[] dependencies = this.getDependencies();
       if ((dependencies == null) || (dependencies.length == 0)) {
-         _resolution = _targetClass.newInstance();
+         _resolution = _targetClass.getDeclaredConstructor().newInstance();
          return _resolution;
       }
       Object[] dependencyResolutions = new Object[dependencies.length];

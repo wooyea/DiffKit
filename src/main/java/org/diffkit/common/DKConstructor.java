@@ -18,7 +18,7 @@ package org.diffkit.common;
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
 
-import org.apache.commons.lang.ClassUtils;
+import org.apache.commons.lang3.ClassUtils;
 
 import com.thoughtworks.paranamer.BytecodeReadingParanamer;
 import com.thoughtworks.paranamer.Paranamer;

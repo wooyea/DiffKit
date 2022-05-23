@@ -15,7 +15,7 @@
  */
 package org.diffkit.db;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 
 import org.diffkit.common.DKValidate;
 

@@ -19,7 +19,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.ClassUtils;
+import org.apache.commons.lang3.ClassUtils;
 
 import org.diffkit.common.annot.ThreadSafe;
 import org.diffkit.diff.engine.DKContext;

@@ -6,7 +6,7 @@ package org.diffkit.util;
 
 import java.math.BigDecimal;
 
-import org.apache.commons.lang.BooleanUtils;
+import org.apache.commons.lang3.BooleanUtils;
 
 /**
  * @author jpanico

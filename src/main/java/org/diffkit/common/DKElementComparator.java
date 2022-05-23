@@ -17,8 +17,8 @@ package org.diffkit.common;
 
 import java.util.Comparator;
 
-import org.apache.commons.lang.ClassUtils;
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.ClassUtils;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 /**
  * @author jpanico

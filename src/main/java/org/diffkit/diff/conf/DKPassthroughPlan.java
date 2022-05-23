@@ -15,7 +15,7 @@
  */
 package org.diffkit.diff.conf;
 
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import org.diffkit.diff.engine.DKSink;
 import org.diffkit.diff.engine.DKSource;

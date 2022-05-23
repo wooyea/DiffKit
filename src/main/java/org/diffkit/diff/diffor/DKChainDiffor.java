@@ -18,12 +18,14 @@ package org.diffkit.diff.diffor;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.ClassUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ClassUtils;
 
 import org.diffkit.common.DKValidate;
 import org.diffkit.diff.engine.DKContext;
 import org.diffkit.diff.engine.DKDiffor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Implements boolean AND of all DKDiffors in chain. Can be used to represent
@@ -32,6 +34,8 @@ import org.diffkit.diff.engine.DKDiffor;
  * @author jpanico
  */
 public class DKChainDiffor implements DKDiffor {
+
+   private final Logger _log = LoggerFactory.getLogger(this.getClass());
 
    private final DKDiffor[] _diffors;
 
@@ -47,8 +51,9 @@ public class DKChainDiffor implements DKDiffor {
 
    public boolean isDiff(Object lhs_, Object rhs_, DKContext context_) {
       for (DKDiffor diffor : _diffors) {
-         if (!diffor.isDiff(lhs_, rhs_, context_))
+         if (!diffor.isDiff(lhs_, rhs_, context_)) {
             return false;
+         }
       }
       return true;
    }
