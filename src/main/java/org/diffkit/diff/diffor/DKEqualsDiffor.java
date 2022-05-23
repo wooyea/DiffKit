@@ -1,4 +1,4 @@
-t /**
+/**
  * Copyright 2010-2011 Joseph Panico
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,6 +21,8 @@ import org.slf4j.LoggerFactory;
 
 import org.diffkit.diff.engine.DKContext;
 import org.diffkit.diff.engine.DKDiffor;
+
+import java.util.Arrays;
 
 /**
  * @author jpanico
@@ -45,16 +47,22 @@ public class DKEqualsDiffor implements DKDiffor {
    public boolean isDiff(Object lhs_, Object rhs_, DKContext context_) {
       if (_isDebugEnabled) {
          _log.debug("lhs_->{} lhs_.class->{}", lhs_,
-            (lhs_ == null ? null : lhs_.getClass()));
+                 (lhs_ == null ? null : lhs_.getClass()));
          _log.debug("rhs_->{} rhs_.class->{}", rhs_,
-            (rhs_ == null ? null : rhs_.getClass()));
+                 (rhs_ == null ? null : rhs_.getClass()));
       }
       boolean lhsNull = (lhs_ == null);
       boolean rhsNull = (rhs_ == null);
       if (lhsNull && rhsNull)
          return false;
-      if (lhsNull || rhsNull)
+      if (lhsNull || rhsNull) {
          return true;
+      }
+      if (lhs_.getClass().isArray()) {
+         if (lhs_.getClass().getComponentType() == byte.class){
+            return !Arrays.equals((byte[])lhs_, (byte[])rhs_);
+         }
+      }
       return !lhs_.equals(rhs_);
    }
 
