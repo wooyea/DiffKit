@@ -186,8 +186,17 @@ public class DKTableModelUtil {
          return DKColumnModel.Type.BOOLEAN;
       case CLOB:
          return DKColumnModel.Type.TEXT;
+      case _MYSQL_MEDIUMINT:
+      case _MYSQL_YEAR:
+          return DKColumnModel.Type.INTEGER;
       case _MYSQL_TEXT:
+      case _MYSQL_LONGTEXT:
+      case _MYSQL_JSON:
          return DKColumnModel.Type.TEXT;
+      case _MYSQL_DATETIME:
+         return DKColumnModel.Type.TIMESTAMP;
+      case _MYSQL_ENUM:
+         return DKColumnModel.Type.STRING;
       case _SQLSERVER_TEXT:
          return DKColumnModel.Type.TEXT;
       case _POSTGRES_TEXT:
